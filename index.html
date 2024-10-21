@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Operations</title>
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: #f0f4f8;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-left: 4px solid #4caf50;
+        }
+
+        h1 {
+            text-align: center;
+            color: #4caf50;
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #555;
+            font-size: 1.5rem;
+            margin-top: 30px;
+        }
+
+        textarea {
+            width: 100%;
+            height: 120px;
+            margin-bottom: 10px;
+            padding: 15px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+            font-size: 1rem;
+            color: #333;
+            resize: none;
+            transition: border 0.3s ease;
+        }
+
+        textarea:focus {
+            border: 2px solid #4caf50;
+            outline: none;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 20px;
+        }
+
+        button {
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            background-color: #4caf50;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-size: 1rem;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        @media (max-width: 600px) {
+            .buttons {
+                flex-direction: column;
+            }
+
+            button {
+                margin-bottom: 10px;
+                width: 100%;
+            }
+        }
+
+    </style>
+</head>
+<body>
+     <div class="container">
+        <h1>Text Operations</h1>
+        <textarea id="inputText" placeholder="Enter your text here..."></textarea>
+        <div class="buttons">
+            <button onclick="convertToUpper()">To Uppercase</button>
+            <button onclick="convertToLower()">To Lowercase</button>
+            <button onclick="reverseText()">Reverse Text</button>
+            <button onclick="clearText()">Clear</button>
+        </div>
+        <h2>Output:</h2>
+        <textarea id="outputText" readonly></textarea>
+    </div>
+
+    <script>
+        function convertToUpper() {
+            const inputText = document.getElementById('inputText').value;
+            document.getElementById('outputText').value = inputText.toUpperCase();
+        }
+
+        function convertToLower() {
+            const inputText = document.getElementById('inputText').value;
+            document.getElementById('outputText').value = inputText.toLowerCase();
+        }
+
+        function reverseText() {
+            const inputText = document.getElementById('inputText').value;
+            document.getElementById('outputText').value = inputText.split('').reverse().join('');
+        }
+
+        function clearText() {
+            document.getElementById('inputText').value = '';
+            document.getElementById('outputText').value = '';
+        }
+    </script>
+</body>
+</html>
